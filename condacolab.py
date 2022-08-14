@@ -102,6 +102,7 @@ def install_from_url(
     condameta = prefix / "conda-meta"
     condameta.mkdir(parents=True, exist_ok=True)
     pymaj, pymin = sys.version_info[:2]
+    pymaj, pymin = 3, 9
 
     with open(condameta / "pinned", "a") as f:
         f.write(f"python {pymaj}.{pymin}.*\n")
@@ -177,7 +178,8 @@ def install_mambaforge(
         Change to False to ignore checks and always attempt
         to run the installation.
     """
-    installer_url = r"https://github.com/jaimergp/miniforge/releases/latest/download/Mambaforge-colab-Linux-x86_64.sh"
+#     installer_url = r"https://github.com/jaimergp/miniforge/releases/latest/download/Mambaforge-colab-Linux-x86_64.sh"
+    installer_url = r"https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-Linux-x86_64.sh"
     install_from_url(installer_url, prefix=prefix, env=env, run_checks=run_checks)
 
 
